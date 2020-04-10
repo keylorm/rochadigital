@@ -19,8 +19,8 @@
 				echo "</div>";
 			}
 		?>
-		<div id="login">
-			<h2>Login Form</h2>
+		<div id="login" class="formulario-centrado">
+			<h2>Inicio de Sesión</h2>
 			<hr/>
 			<?php echo form_open('/admin/dashboard'); ?>
 			<?php
@@ -31,12 +31,12 @@
 				echo validation_errors();
 				echo "</div>";
 			?>
-			<label>UserName :</label>
-			<input type="text" name="username" id="name" placeholder="username"/><br /><br />
-			<label>Password :</label>
-			<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
-			<input type="submit" value=" Login " name="submit"/><br />
-			<a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To SignUp Click Here</a>
+			<!--<label>Usuario :</label>-->
+			<input type="text" name="username" id="name" placeholder="Usuario" /><br /><br />
+			<!--<label>Contraseña :</label>-->
+			<input type="password" name="password" id="password" placeholder="Contraseña" /><br/><br />
+			<input type="submit" value=" Ingresar " name="submit"/><br />
+			<!--<a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To SignUp Click Here</a>-->
 			<?php echo form_close(); ?>
 		</div>
 	</div>

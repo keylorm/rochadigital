@@ -92,6 +92,39 @@ class General extends CI_Model {
 			}
 		}
 
+		public function registrar_contacto($nombre_tabla, $data) {
+
+			// Query to check whether username already exist or not
+			
+		
+				// Query to insert data in database
+				$this->db->insert($nombre_tabla, $data);
+				if ($this->db->affected_rows() > 0) {
+					return $this->db->insert_id();
+				
+				} else {
+					return false;
+				}
+			
+		}
+
+				// Inserta cualquier taxonomia de actividades en base de datos
+		public function registrar_solicitud($nombre_tabla, $data) {
+
+			// Query to check whether username already exist or not
+			
+		
+			// Query to insert data in database
+			$this->db->insert($nombre_tabla, $data);
+			if ($this->db->affected_rows() > 0) {
+				return $this->db->insert_id();
+			
+			} else {
+				return false;
+			}
+			
+		}
+
 		// Inserta cualquier taxonomia de actividades en base de datos
 		public function registrar_ano($nombre_tabla, $data) {
 
@@ -140,6 +173,26 @@ class General extends CI_Model {
 			if($condicion!=""){
 				$this->db->where($condicion);
 			}
+			$this->db->order_by('fecha_registro', 'DESC');
+			$query = $this->db->get();
+
+			if ($query->num_rows() >= 1) {
+				return $query->result();
+			} else {
+				return false;
+			}
+		}
+
+		public function listado_solicitudes($nombre_tabla, $campos, $condicion, $orderby) {
+
+			// Query to check whether username already exist or not
+			
+			$this->db->select($campos);
+			$this->db->from($nombre_tabla);
+			if($condicion!=""){
+				$this->db->where($condicion);
+			}
+			$this->db->order_by($orderby, 'desc');
 			$query = $this->db->get();
 
 			if ($query->num_rows() >= 1) {
@@ -174,6 +227,31 @@ class General extends CI_Model {
 			$this->db->select('*');
 			$this->db->from($nombre_tabla);
 			$this->db->where($condition);
+			$query = $this->db->get();
+
+			if ($query->num_rows() >= 1) {
+				return $query->result();
+			} else {
+				return false;
+			}
+		}
+
+		public function consultar_solicitud($nombre_tabla, $campos = "", $condicion = "") {
+
+			
+			if($campos!=""){
+				$this->db->select($campos);
+			}
+			else{
+				$this->db->select('*');
+			}
+			
+			$this->db->from($nombre_tabla);
+
+			if($condicion!=""){
+				$this->db->where($condicion);
+			}
+			
 			$query = $this->db->get();
 
 			if ($query->num_rows() >= 1) {
@@ -339,6 +417,7 @@ class General extends CI_Model {
 			$this->db->select('*');
 			$this->db->from($nombre_tabla);
 			$this->db->where($condition);
+			$this->db->order_by('filename', 'ASC');
 			//$this->db->limit(1);
 			$query = $this->db->get();
 
@@ -401,4 +480,81 @@ class General extends CI_Model {
 	        return $string;
 
 	    }
+
+	    function enviar_correo($solicitud_id, $nombre, $apellidos, $telefono, $correo){
+
+			$string_Message = "<h1>Nueva solicitud de cotización de fotografías: Orden #".$solicitud_id."</h1><br /><br />";
+
+			$string_Message .= "<p><strong>Nombre: </strong>".$nombre." ".$apellidos."<br /><br />";
+			$string_Message .= "<strong>Telefonos: </strong>";
+			
+			if($telefono!=null){
+				$string_Message .= $telefono."<br />";
+			}
+			
+			/*if($celular!=null){
+				$string_Message .= $celular."<br />";
+			}*/
+			
+			$string_Message .= "<br />";
+			
+			if($correo!=null){
+				$string_Message .= "<strong>Correo: </strong>".$correo."<br /><br />";
+			}
+
+			$string_Message .= "<strong>Link: <a href='".base_url()."admin/solicitud/detalle/".$solicitud_id."'>".base_url()."admin/solicitud/detalle/".$solicitud_id."</a></p>";
+
+
+			$this->email->from('info@rochadigital.co.cr', 'Rocha Digital Website');
+			$this->email->to('info@rochadigital.co.cr');
+			if($correo!=null){
+				$this->email->reply_to($correo);
+			}
+			
+			$this->email->subject('Nueva solicitud de cotizacion de fotografias -  Orden #'.$solicitud_id);
+			$this->email->message($string_Message);
+
+			$this->email->send();
+		}
+
+
+		function enviar_correo_contacto($contacto_id, $datos){
+
+			$string_Message = "<h1>Hay un nuevo contacto desde el sitio web de Rocha Digital</h1><br /><br />";
+
+			$string_Message .= "<p><strong>Nombre: </strong>".$datos['nombre']."<br /><br />";
+			
+			if($datos['correo']!=null){
+				$string_Message .= "<strong>Correo: </strong>".$datos['correo']."<br /><br />";
+			}
+
+			if($datos['telefono']!=null){
+				$string_Message .= "<strong>Telefono: </strong>".$datos['telefono']."<br /><br />";
+			}
+
+			if($datos['asunto']!=null){
+				$string_Message .= "<strong>Asunto: </strong>".$datos['asunto']."<br /><br />";
+			}
+
+			if($datos['mensaje']!=null){
+				$string_Message .= "<strong>Correo: </strong>".$datos['mensaje']."<br /><br />";
+			}
+
+			$string_Message .= "<strong>Link: </strong><a href='".base_url()."admin/contacto/detalle/".$contacto_id."'>".base_url()."admin/contacto/detalle/".$contacto_id."</a>";
+
+			$string_Message .= "</p>";
+			
+
+
+			$this->email->from('info@rochadigital.co.cr', 'Rocha Digital Website');
+			$this->email->to('info@rochadigital.co.cr');
+			if($datos['correo']!=null){
+				$this->email->reply_to($datos['correo']);
+			}
+			
+			$this->email->subject('Nuevo contacto desde sitio web - Rocha Digital');
+			$this->email->message($string_Message);
+
+			$this->email->send();
+		}
 }

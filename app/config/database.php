@@ -75,6 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	/*'hostname' => 'localhost',
+	'username' => 'rochadig_dbu',
+	'password' => 'J"0bffa3pDje',
+	'database' => 'rochadig_db',*/
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',

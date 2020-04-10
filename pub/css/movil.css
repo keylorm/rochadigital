@@ -1,0 +1,33 @@
+@media (max-width: 479px) {
+	.w-col {
+	    width: 100%;
+	}
+
+	button {
+    line-height: 24px;
+    height: 24px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #F29305;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.5s ease;
+	}
+
+    .footer{
+        text-align: center;
+    }
+    .logo img{
+        width: auto;
+    }
+
+    .fotografia,
+    .fotografia.selected{
+        border-width: 8px;
+    }
+
+    .btn-movil{
+        display: block;
+    }
+}

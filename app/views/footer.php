@@ -1,11 +1,55 @@
+</div>
+<div class="footer">
+	<div class="footer-inner w-container">
+		<div class="w-row">
+			<div class="w-col w-col-4">
+				<a href="/"><img src="/pub/images/logo-footer-min.png" /></a>
+			</div>
+			<div class="w-col w-col-4">
+				<div class="menu-footer">
+				<h2>Menú</h2>
+					<ul class="menu-footer-ul">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/fotografias/buscar-actividad-codigo">Buscar actividad por código</a></li>
+						<li><a href="/contactenos">Contáctenos</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="w-col w-col-4">
+				<div class="info-contacto">
+					<h2>Información de Contacto</h2>
+					<p><strong>Correos: </strong><br /><a href="mailto:info@rochadigital.co.cr">info@rochadigital.co.cr</a>
+					<a href="mailto:rochadigital12@gmail.com">rochadigital12@gmail.com</a>
+					
+					<strong>Teléfonos: </strong><br /><a href="tel:+50688300706">+506 8830 0706</a>
+					<a href="tel:+50689516801">+506 8951 6801</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer-creditos">
+	<div class="footer-creditos-inner w-container">
+		<p>Desarrollado por Keylor Mora Garro. Tel: <a href="tel:50686985372">+506 8698 5372</a>. Correo: <a href="mailto:khmg13@gmail.com">khmg13@gmail.com</a></p>
+	</div>
+</div>
 
 
+  	<!--<script src="<?php echo base_url(); ?>pub/js/jquery-3.1.0.min.js"></script>-->
 
-  	<script src="<?php echo base_url(); ?>pub/js/jquery-3.1.0.min.js"></script>
+  	<?php if ($vista=='inicio'){ ?>
+  		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  		<script src="<?php echo base_url(); ?>pub/js/jquery.bxslider.min.js"></script>
+  	<?php }else{ ?>
+  		<script src="<?php echo base_url(); ?>pub/js/jquery-3.1.0.min.js"></script>
+  	<?php } ?>
   	<script src="<?php echo base_url(); ?>pub/js/dropzone.min.js"></script>
   	<script src="<?php echo base_url(); ?>pub/js/jquery.colorbox-min.js"></script>
-
+  	<script src="<?php echo base_url(); ?>pub/js/tinynav.min.js"></script>	
   	<script src="<?php echo base_url(); ?>pub/js/global.js"></script>
+
   
   	<?php if($vista=="admin/contenido/actividades/actividad_form" && $tipo_form=="editar"){ ?>
   		<script>
@@ -46,6 +90,22 @@
 				});
 		</script>
   	<?php } ?>
+
+
+  	<?php if($vista=="inicio"){ ?>
+  		<script>
+
+			$(document).ready(function(){
+			  $('.bxslider').bxSlider({
+				  auto: true,
+				  autoHover: true,
+				  pause: 6000
+				});
+			});
+		</script>
+  	<?php } ?>
+
+  
   		
 		<noscript><div class="noscript">Para disfrutar de una experiencia completa, active JavaScript en el navegador.</div></noscript>
 	</body>

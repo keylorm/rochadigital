@@ -1,0 +1,79 @@
+@media (max-width: 991px) {
+	.w-container{
+		max-width: 100%;
+		padding: 0 2%;
+	}
+
+	.fotografia,
+	.carrito-list-item{
+		width: 25%;
+	}
+
+	.detalle-fotografia{
+		padding: 0;
+	}
+
+	input[type="number"] {
+		width: 75%;
+	}
+
+	.formulario-pedido textarea {
+	    width: 95%;
+	    min-width: 95%;
+	    max-width: 95%;
+	}
+
+	.nombre-fotografia-carrito{
+		display: none;
+	}
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+	.tinynav { 
+		display: block;
+	    width: 96%;
+	    margin: 0 auto;
+	}
+    .menu-list { display: none }
+
+    
+    .header{
+    	text-align: center;
+    }
+
+    .w-container{
+    	padding: 0 2%;
+    }
+
+    .footer .w-col{
+    	margin-bottom: 30px;
+    }
+
+    .formulario-centrado{
+    	width: 100%;
+    }
+
+    .formulario-centrado input[type='text'], .formulario-centrado input[type='password'], .formulario-centrado textarea, .formulario-pedido textarea {
+	    width: 94%;
+	    min-width: 94%;
+	    max-width: 94%;
+	    float: none;
+	    margin: 0 auto;
+	}
+
+	.vista-listado-fotografias .listado,
+	.vista-listado-fotografias .carrito-list{
+		max-height: 300px;
+	    overflow-y: scroll;
+	    margin-bottom: 20px;
+	}
+
+	.logo img{
+		width:100%;
+	}
+}

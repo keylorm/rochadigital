@@ -327,7 +327,7 @@ class Actividad extends CI_Controller {
 					$config_image2['new_image'] = $this->images_path.'/'.$id.'/thumbs';
 					$config_image2['create_thumb'] = TRUE;
 					$config_image2['thumb_marker'] = '_thumb_mediano';
-					$config_image2['maintain_ratio'] = FALSE;
+					$config_image2['maintain_ratio'] = TRUE;
 					$config_image2['width']         = 400;
 					$config_image2['height']       = 400;
 

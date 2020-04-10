@@ -9,7 +9,7 @@
 	<base href="<?=current_url()?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="/public/images/favicon.png" />
-	
+	<link href="<?php echo base_url(); ?>pub/css/colorbox.css" type="text/css" rel="stylesheet" />
   	<link href="<?php echo base_url(); ?>pub/css/dropzone.css" type="text/css" rel="stylesheet" />
   	<link href="<?php echo base_url(); ?>pub/css/global.css" type="text/css" rel="stylesheet" />
 <script>

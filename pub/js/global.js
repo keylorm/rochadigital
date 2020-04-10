@@ -26,7 +26,7 @@
 
 			})
 		});
-
+		$(".colorbox").colorbox({maxWidth:'95%', maxHeight:'95%'});
 
 
 		$("#form-add-pedido").submit(function(event){
@@ -36,7 +36,7 @@
 			$.ajax({
 			  	method: "POST",
 			  	url: "/fotografias/add-photo-order",
-			  	data: { imageid: $('input[name="imageid"]').val(), activityid: $('input[name="activityid"]').val(), cantidad: $('input[name="cantidad"]').val(), tamano: $('select[name="tamano"]').val() },
+			  	data: { imageid: $('input[name="imageid"]').val(), activityid: $('input[name="activityid"]').val(), cantidad: $('input[name="cantidad"]').val(), tamano: $('select[name="tamano"]').val(), indicaciones: $('textarea[name="indicaciones"]').val()},
 				dataType: "json",
 				success: function(data){
 					
@@ -53,15 +53,116 @@
 					for (var prop in data) {
 					  	if(prop==contador){
 					  		var image_url_thumb = '/uploads/images/'+data[prop].image_data.id_actividad+'/thumbs/'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'_thumb_pequeno'+data[prop].image_data.filename.substring(data[prop].image_data.filename.length-4);
-							$('.carrito-list').append('<div class="carrito-list-item carrito-list-item-'+(prop)+'"><img class="fotografia-img" data-fotografia-id="'+data[prop].image_data.id+'" src="'+image_url_thumb+'" /><div class="fotografia-detalle"><p><strong>ID de fotografía: </strong>'+data[prop].imageid+'<br /><strong>Cantidad: </strong>'+data[prop].cantidad+'<br /><strong>Tamaño: </strong> '+data[prop].tamano_string+'<br /></p></div></div>');
+							$('.carrito-list').append('<div class="carrito-list-item carrito-list-item-'+(prop)+'"><img class="fotografia-img" data-fotografia-id="'+data[prop].image_data.id+'" src="'+image_url_thumb+'" /><div class="fotografia-detalle"><p><span class="nombre-fotografia-carrito"><strong>Fotografía: </strong>'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'<br /></span><strong>Cantidad: </strong>'+data[prop].cantidad+'<br /><strong>Tamaño: </strong> '+data[prop].tamano_string+'<br /><br /><button class="eliminar-foto-pedido" data-session-item-id="'+data[prop].sessionid+'">Eliminar</button></p></div></div>');
 						}
 					  
 					}
 					
 				}
 
-			})
+			});
+		});
+
+
+
+		$(".eliminar-foto-pedido").click(function(){
+
+			console.log("click");
+			//event.preventDefault();
+			var id_session = $(this).data("session-item-id");
+
+
+			$.ajax({
+			  	method: "POST",
+			  	url: "/fotografias/delete-photo-order",
+			  	data: { sessionid: id_session },
+				dataType: "json",
+				success: function(data){
+
+					//$('.carrito-list-item').remove();
+
+					$('.carrito-list-item-'+data.sessionid).remove();
+					
+					/*var contador = 0;
+					for (var prop in data) {
+					 	contador=contador+1;					  
+					}
+
+					
+
+					for (var prop in data) {
+					  	if(prop==contador){
+					  		console.log(prop);
+					  		var image_url_thumb = '/uploads/images/'+data[prop].image_data.id_actividad+'/thumbs/'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'_thumb_pequeno'+data[prop].image_data.filename.substring(data[prop].image_data.filename.length-4);
+							$('.carrito-list').append('<div class="carrito-list-item carrito-list-item-'+(prop)+'"><img class="fotografia-img" data-fotografia-id="'+data[prop].image_data.id+'" src="'+image_url_thumb+'" /><div class="fotografia-detalle"><p><strong>Fotografía: </strong>'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'<br /><strong>Cantidad: </strong>'+data[prop].cantidad+'<br /><strong>Tamaño: </strong> '+data[prop].tamano_string+'<br /><button class="eliminar-foto-pedido" data-session-item-id="'+data[prop].sessionid+'">Eliminar</button></p></div></div>');
+						}
+					  
+					}*/
+					
+					
+				}
+
+			});
+		});
+
+		$('#formulario-solicitud-fotografias').submit(function( event ) {
+			$("input[type='submit']", this)
+	      .val("Procesando ...")
+	      .attr('disabled', 'disabled');
+	 
+	    return true;
+		});
+
+		$(function () {
+			$(".menu-list").tinyNav({
+				active: 'active',
+			});
+		});
+
+
+	});
+
+	$(document).ajaxComplete(function(){
+		$(".eliminar-foto-pedido").click(function(){
+
+			
+			//event.preventDefault();
+			var id_session = $(this).data("session-item-id");
+
+
+			$.ajax({
+			  	method: "POST",
+			  	url: "/fotografias/delete-photo-order",
+			  	data: { sessionid: id_session },
+				dataType: "json",
+				success: function(data){
+					
+					//$('.carrito-list-item').remove();
+
+					$('.carrito-list-item-'+data.sessionid).remove();
+					
+					/*var contador = 0;
+					for (var prop in data) {
+					 	contador=contador+1;					  
+					}
+
+					
+
+					for (var prop in data) {
+					  	if(prop==contador){
+					  		console.log(prop);
+					  		var image_url_thumb = '/uploads/images/'+data[prop].image_data.id_actividad+'/thumbs/'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'_thumb_pequeno'+data[prop].image_data.filename.substring(data[prop].image_data.filename.length-4);
+							$('.carrito-list').append('<div class="carrito-list-item carrito-list-item-'+(prop)+'"><img class="fotografia-img" data-fotografia-id="'+data[prop].image_data.id+'" src="'+image_url_thumb+'" /><div class="fotografia-detalle"><p><strong>Fotografía: </strong>'+data[prop].image_data.filename.substring(0,data[prop].image_data.filename.length-4)+'<br /><strong>Cantidad: </strong>'+data[prop].cantidad+'<br /><strong>Tamaño: </strong> '+data[prop].tamano_string+'<br /><button class="eliminar-foto-pedido" data-session-item-id="'+data[prop].sessionid+'">Eliminar</button></p></div></div>');
+						}
+					  
+					}*/
+					
+					
+				}
+
+			});
 		});
 
 	});
 })(jQuery);
+
