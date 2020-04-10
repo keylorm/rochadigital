@@ -1,6 +1,6 @@
 
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		<?php
 			if (isset($this->session->userdata['logged_in'])) {
 

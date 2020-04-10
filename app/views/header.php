@@ -38,12 +38,12 @@
 </head>
 <body class="<?php echo ' vista-'.$this->general->formatURL($vista); ?>" >
 <!--<div class="header-top">
-	<div class="w-container">
+	<div class="container">
 		<?php require_once 'bloques/menu_login.php'; ?>
 	</div>
 </div>-->
 <div class="header">
-	<div class="w-container">
+	<div class="container">
 		<div class="w-row">
 			<div class="logo w-col w-col-3">
 				<a href="/"><img src="/pub/images/logo-min.png" /></a>

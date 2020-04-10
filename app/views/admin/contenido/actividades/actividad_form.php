@@ -6,8 +6,8 @@
 		header("location: admin/login");
 	}
 ?>
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		<div id="registar-actividad-form">
 			<h2>
 				<?php if($tipo_form=="editar"){ ?>
@@ -151,9 +151,9 @@
 			echo"<br/>";
 			echo"<br/>";
 			if($tipo_form=="editar"){
-				echo form_submit('submit', 'Guardar Actividad');
+				echo form_submit('submit', 'Guardar Actividad', array('class' => 'btn btn-primary'));
 			}else{
-				echo form_submit('submit', 'Registrar Actividad');
+				echo form_submit('submit', 'Registrar Actividad', array('class' => 'btn btn-primary'));
 			}
 
 			echo form_close();

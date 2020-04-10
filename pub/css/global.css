@@ -21,27 +21,27 @@ ul{
 	height: 30px;
 }
 
-.w-container{
+.container{
 	max-width: 1280px;
 	margin:0 auto;
 	position: relative;
 }
 
-.w-container-1440{
+.container-1440{
   max-width: 1440px;
   margin:0 auto;
   position: relative;
 }
 
-.w-container:before,
-.w-container:after {
+.container:before,
+.container:after {
   content: " ";
   display: table;
 }
-.w-container:after {
+.container:after {
   clear: both;
 }
-.w-container .w-row {
+.container .w-row {
 
 }
 .w-row:before,
@@ -347,24 +347,7 @@ textarea{
   padding:5px;
 }
 
-input[type="submit"],
-button{
-   line-height: 40px;
-  height: 40px;
-  border:1px solid #aaa;
-  border-radius: 5px;
-  background-color: #F29305;
-  color:#fff;
-  font-size:  18px;
 
-  font-weight: bold;
-  transition: all 0.5s ease;
-}
-
-input[type="submit"]:hover,
-button:hover{
-  transform: translate(0, -5px);
-}
 
 .header{
   background-color:#c4f0f6;
@@ -563,31 +546,11 @@ label{
   color: #fff;
 }
 
-.btn{
-    line-height: 40px;
-    height: 40px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    max-width: 300px;
-    margin: 20px auto 0;
-}
+
 .btn-naranja{
   background-color: #F29305;
 }
 
-
-.btn a{
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  width: 100%;
-  display: block;
-}
 
 .btn-movil {
   display: none;

@@ -6,8 +6,8 @@
 		header("location: admin/login");
 	}
 ?>
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		<div id="detalle-solicitud">
 			<h2>
 				
@@ -100,7 +100,7 @@
 					echo"<br/>";
 					echo"<br/>";
 					
-					echo form_submit('submit', 'Actualizar Solicitud');
+					echo form_submit('submit', 'Actualizar Solicitud', array('class' => 'btn btn-primary'));
 					
 
 					echo form_close();

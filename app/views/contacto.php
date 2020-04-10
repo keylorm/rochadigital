@@ -1,5 +1,5 @@
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		
 		<div class="contacto-container">
 			<h1>Contáctenos</h1>

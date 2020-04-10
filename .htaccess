@@ -1,8 +1,8 @@
 # Activar extención
-AddType text/cache-manifest .webcache
+#AddType text/cache-manifest .webcache
 
 #--Prevent directory listings
-Options All -Indexes
+#Options All -Indexes
 
 #--Prevent viewing of .htaccess file--#
 <Files .htaccess>
@@ -15,11 +15,11 @@ deny from all
 
 
 #--Uses mod_deflate for sending compressed requests--#
-SetOutputFilter DEFLATE
+#SetOutputFilter DEFLATE
 
 #--Don't compress these
 SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-Header append Vary User-Agent env=!dont-vary
+#Header append Vary User-Agent env=!dont-vary
 
 
 # turns cache on for 1 month

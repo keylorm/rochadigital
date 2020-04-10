@@ -1,5 +1,5 @@
 @media (max-width: 991px) {
-	.w-container{
+	.container{
 		max-width: 100%;
 		padding: 0 2%;
 	}
@@ -46,7 +46,7 @@
     	text-align: center;
     }
 
-    .w-container{
+    .container{
     	padding: 0 2%;
     }
 

@@ -8,8 +8,8 @@
 		header("location: admin/login");
 	}
 ?>
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		<div id="profile">
 			<?php
 			echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";

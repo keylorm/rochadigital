@@ -1,5 +1,5 @@
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		
 		<div id="busqueda-actividad-codigo-form" class="formulario-centrado">
 			<h2>Búsqueda de actividad por código</h2>

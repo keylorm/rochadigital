@@ -1,6 +1,6 @@
 </div>
 <div class="footer">
-	<div class="footer-inner w-container">
+	<div class="footer-inner container">
 		<div class="w-row">
 			<div class="w-col w-col-4">
 				<a href="/"><img src="/pub/images/logo-footer-min.png" /></a>
@@ -31,7 +31,7 @@
 </div>
 
 <div class="footer-creditos">
-	<div class="footer-creditos-inner w-container">
+	<div class="footer-creditos-inner container">
 		<p>Desarrollado por Keylor Mora Garro. Tel: <a href="tel:50686985372">+506 8698 5372</a>. Correo: <a href="mailto:khmg13@gmail.com">khmg13@gmail.com</a></p>
 	</div>
 </div>
@@ -43,7 +43,9 @@
   		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   		<script src="<?php echo base_url(); ?>pub/js/jquery.bxslider.min.js"></script>
   	<?php }else{ ?>
-  		<script src="<?php echo base_url(); ?>pub/js/jquery-3.1.0.min.js"></script>
+  		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   	<?php } ?>
   	<script src="<?php echo base_url(); ?>pub/js/dropzone.min.js"></script>
   	<script src="<?php echo base_url(); ?>pub/js/jquery.colorbox-min.js"></script>

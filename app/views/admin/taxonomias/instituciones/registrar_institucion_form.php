@@ -6,8 +6,8 @@
 		header("location: admin/login");
 	}
 ?>
-<div id="main">
-	<div class="w-container">
+<div id="main" class="my-4">
+	<div class="container">
 		<div id="registar-institucion-form">
 			<h2>
 				<?php if($tipo_form=="editar"){ ?>
@@ -46,9 +46,9 @@
 			echo"<br/>";
 
 			if($tipo_form=="editar"){
-				echo form_submit('submit', 'Guardar Institución');
+				echo form_submit('submit', 'Guardar Institución', array('class' => 'btn btn-primary'));
 			}else{
-				echo form_submit('submit', 'Registrar Institución');
+				echo form_submit('submit', 'Registrar Institución', array('class' => 'btn btn-primary'));
 			}
 
 			echo form_close();
